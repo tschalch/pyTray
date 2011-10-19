@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Prefs>
+<ScoreList>
+<Score>
+<ScoreNr>1</ScoreNr>
+<ScoreText>Clear Drop</ScoreText>
+<ScoreColor>DDDDDD</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>2</ScoreNr>
+<ScoreText>Phase Separation</ScoreText>
+<ScoreColor>999999</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>3</ScoreNr>
+<ScoreText>Heavy Precipitate</ScoreText>
+<ScoreColor>555555</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>4</ScoreNr>
+<ScoreText>Regular Granular Precipitate</ScoreText>
+<ScoreColor>9999FF</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>5</ScoreNr>
+<ScoreText>Birefringent Precipitate or Microcrystals</ScoreText>
+<ScoreColor>0000FF</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>6</ScoreNr>
+<ScoreText>Posettes or Spherulites</ScoreText>
+<ScoreColor>000099</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>7</ScoreNr>
+<ScoreText>Needles (1D Growth)</ScoreText>
+<ScoreColor>FFCC99</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>8</ScoreNr>
+<ScoreText>Plates (2D Growth)</ScoreText>
+<ScoreColor>FF9933</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>9</ScoreNr>
+<ScoreText>Single Crystals (3D Growth &lt; 0.2mm)</ScoreText>
+<ScoreColor>FF0000</ScoreColor>
+</Score>
+<Score>
+<ScoreNr>10</ScoreNr>
+<ScoreText>Single Crystals (3D Growth &gt; 0.2mm)</ScoreText>
+<ScoreColor>993399</ScoreColor>
+</Score>
+</ScoreList>
+</Prefs>

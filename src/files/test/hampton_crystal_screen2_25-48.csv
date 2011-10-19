@@ -1,0 +1,55 @@
+#Crystal Screen 2 Formulation,,,,,,,,,,,,,,
+#Hampton Research - Copyright 2006,,,,,,,,,,,,,,
+#,,,,,,,,,,,,,,
+>SolutionNr,Position,[Salt 1],{Salt 1},Salt 1,[Buffer],{Buffer},Buffer,pH,[Precipitant 1],{Precipitant 1},Precipitant 1,[Precipitant 2],{Precipitant 2},Precipitant 2
+#,,,units,,,units,,,#,,units,,,units
+1,,2,M,Sodium chloride,,,,,10,% w/v,"Polyethylene glycol 6,000",,,
+2,,0.5,M,Sodium chloride,,,,,0.01,M,Hexadecyltrimethylammonium bromide,,,
+2,,0.01,M,Magnesium chloride hexahydrate,,,,,,,,,,
+3,,,,,,,,,25,% v/v,Ethylene glycol,,,
+4,,,,,,,,,35,% v/v,"1,4-Dioxane",,,
+5,,2,M,Ammonium sulfate ,,,,,5,% v/v,2-Propanol,,,
+6,,,,,,,,,1,M,Imidazole pH 7.0,,,
+7,,,,,,,,,10,% w/v,"Polyethylene glycol 1,000",10,% w/v,"Polyethylene glycol 8,000"
+8,,1.5,M,Sodium chloride,,,,,10,% v/v,Ethanol,,,
+9,,,,,0.1,M,Sodium acetate trihydrate,4.6,2,M,Sodium chloride,,,
+10,,0.2,M,Sodium chloride,0.1,M,Sodium acetate trihydrate,4.6,30,% v/v,"(+/-)-2-Methyl-2,4-pentanediol",,,
+11,,0.01,M,Cobalt (II) chloride hexahydrate,0.1,M,Sodium acetate trihydrate,4.6,1,M,"1,6-Hexanediol"
+12,,0.1,M,Cadmium chloride hydrate,0.1,M,Sodium acetate trihydrate,4.6,30,% v/v,Polyethylene glycol 400
+13,,0.2,M,Ammonium sulfate ,0.1,M,Sodium acetate trihydrate,4.6,30,% w/v,"Polyethylene glycol monomethyl ether 2,000"
+14,,0.2,M,Potassium sodium tartrate tetrahydrate,0.1,M,Sodium citrate tribasic dihydrate,5.6,2,M,Ammonium sulfate 
+15,,0.5,M,Ammonium sulfate ,0.1,M,Sodium citrate tribasic dihydrate,5.6,1,M,Lithium sulfate monohydrate
+16,,0.5,M,Sodium chloride,0.1,M,Sodium citrate tribasic dihydrate,5.6,2,% v/v,Ethylene imine Polymer
+17,,,,,0.1,M,Sodium citrate tribasic dihydrate,5.6,35,% v/v,tert-Butanol
+18,,0.01,M,Iron (III) chloride hexahydrate,0.1,M,Sodium citrate tribasic dihydrate,5.6,10,% v/v,Jeffamine M-600
+19,,,,,0.1,M,Sodium citrate tribasic dihydrate,5.6,2.5,M,"1,6-Hexanediol"
+20,,,,,0.1,M,MES monohydrate,6.5,1.6,M,Magnesium sulfate heptahydrate
+21,,0.1,M,Sodium phosphate monobasic monohydrate,0.1,M,MES monohydrate,6.5,2,M,Sodium chloride
+21,,0.1,M,Potassium phosphate monobasic,,,,,,,
+22,,,,,0.1,M,MES monohydrate,6.5,12,% w/v,"Polyethylene glycol 20,000"
+23,,1.6,M,Ammonium sulfate ,0.1,M,MES monohydrate,6.5,10,% v/v,"1,4-Dioxane"
+24,,0.05,M,Cesium chloride,0.1,M,MES monohydrate,6.5,30,% v/v,Jeffamine M-600
+25,1,0.01,M,Cobalt (II) chloride hexahydrate,0.1,M,MES monohydrate,6.5,1.8,M,Ammonium sulfate 
+26,2,0.2,M,Ammonium sulfate ,0.1,M,MES monohydrate,6.5,30,% w/v,"Polyethylene glycol monomethyl ether 5,000",,,
+27,3,0.01,M,Zinc sulfate heptahydrate,0.1,M,MES monohydrate,6.5,25,% v/v,Polyethylene glycol monomethyl ether 550,,,
+28,4,,,,,,,,1.6,M,Sodium citrate tribasic dihydrate pH 6.5,,,
+29,5,0.5,M,Ammonium sulfate ,0.1,M,HEPES,7.5,30,% v/v,"(+/-)-2-Methyl-2,4-pentanediol",,,
+30,6,,,,0.1,M,HEPES,7.5,10,% w/v,"Polyethylene glycol 6,000",5,% v/v,"(+/-)-2-Methyl-2,4-pentanediol"
+31,7,,,,0.1,M,HEPES,7.5,20,% v/v,Jeffamine M-600,,,
+32,8,0.1,M,Sodium chloride,0.1,M,HEPES,7.5,1.6,M,Ammonium sulfate ,,,
+33,9,,,,0.1,M,HEPES,7.5,2,M,Ammonium formate,,,
+34,10,0.05,M,Cadmium sulfate hydrate,0.1,M,HEPES,7.5,1,M,Sodium acetate trihydrate,,,
+35,11,,,,0.1,M,HEPES,7.5,70,% v/v,"(+/-)-2-Methyl-2,4-pentanediol",,,
+36,12,,,,0.1,M,HEPES,7.5,4.3,M,Sodium chloride,,,
+37,13,,,,0.1,M,HEPES,7.5,10,% w/v,"Polyethylene glycol 8,000",8,% v/v,Ethylene glycol
+38,14,,,,0.1,M,HEPES,7.5,20,% w/v,"Polyethylene glycol 10,000",,,
+39,15,0.2,M,Magnesium chloride hexahydrate,0.1,M,Tris,8.5,3.4,M,"1,6-Hexanediol",,,
+40,16,,,,0.1,M,Tris,8.5,25,% v/v,tert-Butanol,,,
+41,17,0.01,M,Nickel (II) chloride hexahydrate,0.1,M,Tris,8.5,1,M,Lithium sulfate monohydrate,,,
+42,18,1.5,M,Ammonium sulfate ,0.1,M,Tris,8.5,12,% v/v,Glycerol,,,
+43,19,0.2,M,Ammonium phosphate monobasic,0.1,M,Tris,8.5,50,% v/v,"(+/-)-2-Methyl-2,4-pentanediol",,,
+44,20,,,,0.1,M,Tris,8.5,20,% v/v,Ethanol,,,
+45,21,0.01,M,Nickel (II) chloride hexahydrate,0.1,M,Tris,8.5,20,% w/v,"Polyethylene glycol monomethyl ether 2,000",,,
+46,22,0.1,M,Sodium chloride,0.1,M,BICINE,9,20,% v/v,Polyethylene glycol monomethyl ether 550,,,
+47,23,,,,0.1,M,BICINE,9,2,M,Magnesium chloride hexahydrate,,,
+48,24,,,,0.1,M,BICINE,9,2,% v/v,"1,4-Dioxane",10,% w/v,"Polyethylene glycol 20,000"
