@@ -1,0 +1,32 @@
+                          pyTray 
+  
+  Version 0.1
+
+  What is it?
+  -----------
+
+  pyTray is a software for tracking crystallization experiments.
+
+  The Latest Version
+  ------------------
+
+  Details of the latest version can be found on
+  https://github.com/tschalch/pyTray. 
+
+  Installation
+  ------------
+
+  For windows installation, copy the directory called "dist" into your location
+  of choice. Use pyTray.exe to start the program.
+
+  Licensing
+  ---------
+
+  The software is distributed under the New BSD License. Please see the file
+  called LICENSE.
+
+
+
+  Enjoy,
+
+  Thomas Schalch
