@@ -46,9 +46,9 @@ class Tray(BufferedWindow):
                          22:"V", 23:"W", 24:"X", 25:"Y", 26:"Z"}
         self.printInfo = 0
         if wx.Platform == '__WXGTK__':
-            self.font = wx.Font(12, wx.MODERN, wx.NORMAL, wx.NORMAL)
+            self.font = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         else:
-            self.font = wx.Font(10, wx.MODERN, wx.NORMAL, wx.NORMAL)
+            self.font = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         
         BufferedWindow.__init__(self, parent, id)
         self.Bind(wx.EVT_LEFT_UP, self.OnClick)
@@ -84,7 +84,7 @@ class Tray(BufferedWindow):
 
         self.border = self.boxwidth
         newFont = 10
-        if self.boxwidth < 20:
+        if self.boxwidth < 20 and self.boxwidth > 12:
             newFont = self.boxwidth / 2.
         self.font = wx.Font(newFont, wx.MODERN, wx.NORMAL, wx.NORMAL)
         
@@ -460,9 +460,9 @@ class Well(wx.Rect):
                 if drop.container.selected:
                     dropSelected = True
         if self.container.selected or dropSelected:
-            return wx.NamedColor(self.onColor)
+            return wx.NamedColour(self.onColor)
         else:
-            return wx.NamedColor(self.offColor)
+            return wx.NamedColour(self.offColor)
 
     def SetColor(self, color):
         """ sets Well color """
@@ -533,7 +533,7 @@ class Drop(Well):
                 if not self.hasImage:
                     self.hasImage = True
                     #raise BurnInBackgroundError("New image update detected", self)
-                dc.SetBrush(wx.Brush(wx.NamedColor("white"),wx.SOLID))
+                dc.SetBrush(wx.Brush(wx.NamedColour("white"),wx.SOLID))
                 boxsize = 0
                 if self.GetWidth() > self.GetHeight():
                     boxsize =  round(self.GetHeight()/3)
@@ -559,10 +559,10 @@ class Drop(Well):
                 log.debug("Score: %s", score)
                 return "#" + self.data.GetScoreColor(score)
             except ValueError:
-                return wx.NamedColor(self.offColor)
+                return wx.NamedColour(self.offColor)
             except KeyError:
                 log.debug("ScoreColor %s not found", score)
-                return wx.NamedColor(self.offColor)
+                return wx.NamedColour(self.offColor)
         else:
             return Well.GetColor(self)
     

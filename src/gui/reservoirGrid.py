@@ -443,7 +443,8 @@ class trayGrid(gridlib.Grid):
     
     def OnAdd(self, event):
         self.AppendRows()
-        event.Skip()
+	if event: 
+	    event.Skip()
 
     def OnDelete(self, event):
         if len(self.GetSelectionBlockTopLeft()):
@@ -451,7 +452,8 @@ class trayGrid(gridlib.Grid):
         else:
             rows = self.GetSelectedRows()
         self.GetTable().DeleteRows(rows)
-        event.Skip()
+	if event:
+	    event.Skip()
 
     def OnLabelLeftClick(self, event):
         col = event.GetCol()

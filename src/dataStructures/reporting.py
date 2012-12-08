@@ -8,6 +8,7 @@ __doc__=''
 import sys,os,copy
 from reportlab.lib import colors
 from reportlab.platypus import *
+import reportlab.platypus
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.rl_config import defaultPageSize
 from reportlab.lib.units import inch, cm
@@ -15,7 +16,6 @@ from reportlab.lib.pagesizes import A4
 PAGE_HEIGHT=defaultPageSize[1]
 PAGE_WIDTH=defaultPageSize[0]
 styles = getSampleStyleSheet()
-
 
 class Report:
     """ 
@@ -32,14 +32,14 @@ class Report:
         Its a dictionary with entries given in the fields array.
         parameter tray is a tray class used for the scoring graphics
     """
-    def __init__(self, data, parts, tray, filename):
+    def __init__(self, data, parts, tray, filename, tmpDir):
         fields = ["stockSols", "screenSols", "scoreList", "scoreGraphics"]
         self.parts = parts
         self.tray = tray
         self.filename = filename
         self.elements = []
         self.data = data
-        self.reportData = ReportData(data)
+        self.reportData = ReportData(data, tmpDir)
         self.paraStyle = styles["Normal"]
         self.titleStyle=copy.deepcopy(styles["Heading1"])
         self.titleStyle.fontSize = 30
@@ -176,8 +176,17 @@ class Report:
 #**********************************************************************************
 
 from reportlab.platypus.flowables import Flowable
-import Image, ImageChops
+import Image as pimage
+import ImageChops
+from reportlab.lib import colors
+from reportlab.graphics.shapes import *
 
+class ScoreColorBox(Drawing):
+    '''drawing a simple box of a certain size and color'''
+    def __init__(self, width, height, color=colors.white):
+	self.width=width
+	self.height=height
+	self.add(Rect(0,0, width, height, 0, 0, fillcolor=color))
 
 class PILImage(Flowable):
     '''An image flowable that is based on PIL. The constructor works with wxBitmaps.'''
@@ -199,7 +208,7 @@ class PILImage(Flowable):
         im = self.image._image
         if im.mode != "RGB":
             im = im.convert("RGB")
-        bg = Image.new("RGB", im.size, bgcolor)
+        bg = pimage.new("RGB", im.size, bgcolor)
         diff = ImageChops.difference(im, bg)
         bbox = diff.getbbox()
         if bbox:
@@ -208,11 +217,11 @@ class PILImage(Flowable):
 
 class ReportImage:
     def __init__(self, image):
-        if type(image) == type(Image.new("RGB",(1,1))):
+        if type(image) == type(pimage.new("RGB",(1,1))):
             self._image = image
         else:
             size = (image.GetWidth(), image.GetHeight())
-            self._image = Image.fromstring("RGB",size,image.ConvertToImage().GetData())
+            self._image = pimage.fromstring("RGB",size,image.ConvertToImage().GetData())
 
     def getRGBData(self):
         rgb = self._image.convert('RGB')
@@ -223,10 +232,12 @@ class ReportImage:
         
 #**********************************************************************************
 
+
 class ReportData:
     
 
-    def __init__(self, data):
+    def __init__(self, data, tmpDir):
+	self.tmpDir = tmpDir
         self.data = data
 
     def GetReagentTable(self):
@@ -249,12 +260,15 @@ class ReportData:
         dates = self.data.GetObservationDates()
         tableData = [['',''] for e in range(len(dates)/2+1)]
         #print tableData, len(dates)
+	images = []
         for i in range(len(dates)):
             self.data.SetObservationDate(dates[i])
             tray.ClearWells()
-            image = PILImage(tray.GetImage((500, 300)))
-            image.size = (200,147.3)
-            tableData[i/2][i%2] = [image]
+	    import pdb
+	    trayImage = ReportImage(tray.GetImage((500, 300)))
+	    trayImage._image.save(self.tmpDir + 'tmp%i.jpg'%i, "JPEG")
+	    images.append(flowables.Image(self.tmpDir + 'tmp%i.jpg'%i, width=200, height=147))
+	    tableData[i/2][i%2] = [images[i]]
             #tableData[i/2][i%2] = "image"
         #print tableData
         t = Table(tableData)
@@ -445,8 +459,10 @@ class ReportData:
             data = [name]
             data.append(score.GetProperty("ScoreText"))
             c = score.GetProperty("ScoreColor")
-            img = PILImage(Image.new("RGB", (3*wUnit,7), '#'+c))
-            data.append(img)
+	    d = Drawing(3*wUnit,7)
+	    d.add(Rect(0,0,3*wUnit,7, fillColor='#'+c))
+            #img = ScoreColorBox(3*wUnit,7, '#'+c)
+            data.append(d)
             tableData.append(data)
         colWidths = [1*wUnit, 9*wUnit, 3*wUnit]
         t = Table(tableData, colWidths = colWidths)

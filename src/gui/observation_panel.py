@@ -1,10 +1,11 @@
 import wx
-import logging
+import logging, pdb
 logging.basicConfig()
 log = logging.getLogger("observation_panel")
 #from video_frame import VideoFrame
-video = True
-from util.twain_camera import TwainCamera
+video = False
+if video:
+    from util.twain_camera import TwainCamera
 
 from PIL import Image
 #Image._initialized=2
@@ -72,7 +73,7 @@ class ObservationPanel(wx.Panel):
         self.Bind(wx.EVT_BUTTON, self.DeleteObservation, self.del_obs_button)
         self.Bind(wx.EVT_BUTTON, self.OnAddImage, self.addImageButton)
 
-        self.__set_properties()
+        #self.__set_properties()
         self.__do_layout()
         #self.Update()
         # On start show the latest observation

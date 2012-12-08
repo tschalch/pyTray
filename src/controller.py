@@ -192,7 +192,7 @@ class NewDialog(wx.Dialog):
         self.PostCreate(pre)
         self.controller = parent.controller
         fieldHeight = 20
-        sizer_0 = wx.FlexGridSizer(3,1,0,0)
+        sizer_0 = wx.FlexGridSizer(5,1,0,0)
         # Template fields
         box = wx.BoxSizer(wx.HORIZONTAL)
         templateLabel = wx.StaticText(self, -1, "Import screen from: ")

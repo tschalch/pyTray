@@ -9,15 +9,12 @@ import elmtree_backend
 
 if os.name == 'nt':
     apdir = os.environ["APPDATA"] + "\\PyTray"
-    if not os.path.exists(apdir):
-        os.mkdir(os.environ["APPDATA"] + "\\PyTray")
-    oldfile = user.home + "/.pyTray"
-    configFile = apdir + "\\user.pyTray"
-    if os.path.exists(oldfile) and not os.path.exists(configFile):
-        os.rename(oldfile,configFile)
 else:
-    apdir = user.home
-    configFile = apdir + "/.pyTray"
+    apdir = user.home + "/.pyTray"
+if not os.path.exists(apdir):
+    os.mkdir(apdir)
+configFile = apdir + "/config.pyTray"
+
 # clean up old temp files
 for dirpath, dirnames, filenames in os.walk(apdir):
     for filename in filenames:

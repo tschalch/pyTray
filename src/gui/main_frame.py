@@ -5,7 +5,7 @@ logging.basicConfig()
 log = logging.getLogger("gui")
 
 import wx
-import os, sys
+import os, sys, pdb
 from util.trayErrors import NoUndoError
 from xtal_panel import XtalPanel
 from screen_panel import ScreenPanel
@@ -331,15 +331,16 @@ class MainFrame(wx.Frame):
                 if os.access(path, os.F_OK):
                     d = wx.MessageBox("Overwrite existing file?", "Confirm", wx.YES_NO, self)
                     if d == wx.YES:
-                        report = Report(self.data,parts, self.xtal_panel.tray, path)
+                        report = Report(self.data,parts, self.xtal_panel.tray, path, self.controller.userData.GetTempDir())
                         gen = report.compile()
                 else:
-                    report = Report(self.data,parts, self.xtal_panel.tray, path)
+                    report = Report(self.data,parts, self.xtal_panel.tray, path. self.controller.userData.GetTempDir())
                     gen = report.compile()
             dlg.Destroy()
             if gen[0]:
                 #wx.MessageBox(gen[1], "Message", wx.OK)
-                os.startfile(path)
+                #os.startfile(path)
+		os.system('open %s' % path)
             else:
                 wx.MessageBox(gen[1], "Message", wx.OK)
 

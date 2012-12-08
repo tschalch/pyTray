@@ -2,7 +2,7 @@
 
 import wx
 import Image
-import os, sys
+import os, sys, pdb
 #from xml_tray import XMLTrayData
 import wx.lib.mixins.listctrl  as  listmix
 from tray import Tray
@@ -113,7 +113,7 @@ class XtalPanel(wx.SplitterWindow):
 
         newstyle = (True and [fpb.FPB_VERTICAL] or [fpb.FPB_HORIZONTAL])[0]
         self._pnl = fpb.FoldPanelBar(self.sash1, -1, wx.DefaultPosition,
-                                     wx.Size(-1,-1), fpb.FPB_DEFAULT_STYLE|newstyle,  fpb_flags)
+                                     wx.Size(-1,-1), newstyle,  fpb_flags)
 
         Images = wx.ImageList(16,16)
         Images.Add(GetExpandedIconBitmap())

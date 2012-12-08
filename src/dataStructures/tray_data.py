@@ -152,7 +152,7 @@ class TrayData:
 
     def AddNewScreenSolution(self, position, solutionNr=None):
         # add a solution container to each well
-        print "SolNr:", solutionNr
+        # print "SolNr:", solutionNr
         screenSolution = self.dbBackend.GetNewItem('ScreenSolution', self.screen)
         screenSolution.SetProperty("Position", position)
         if solutionNr:

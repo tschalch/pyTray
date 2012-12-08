@@ -79,6 +79,7 @@ class TestObservations(Test):
         obspanel.DeleteObservation(None,False)
         results.write("OK\n")
         results.write(self.data.GetSummary())
+	results.write("Observation test completed...")
         frame.Destroy()
         
 
@@ -125,10 +126,12 @@ class TestGrids(Test):
         grid.SelectRow(random.randint(0, grid.GetNumberRows()-2))
         grid.OnDelete(None)
         results.write(grid.GetAsString())
+	results.write("Grid test completed...")
 
 class TestNewScreens(Test):
     
     def Run(self):
+	frame = self.StartGui()
         results.write("New Screen from scratch ... ")
         name = "Testscreen"
         noRows = random.randint(1,12)
@@ -254,9 +257,10 @@ class TestReporting(Test):
         parts["screenVolumes"] = (10,"ml")
         path = os.path.abspath(files + "/test.pdf")
         try:
-            report = Report(self.data,parts, frame.xtal_panel.tray, path)
+            report = Report(self.data,parts, frame.xtal_panel.tray, path, '')
             gen = report.compile()
-            os.startfile(path)
+            #os.startfile(path)
+	    os.system('open %s' % path)
         except:
             print "Reporting failed"
             print sys.exc_info()

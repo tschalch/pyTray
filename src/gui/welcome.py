@@ -26,10 +26,10 @@ class WelcomeFrame(wx.Frame):
             self.imagePanels.append(ImagePanel(self, titleImage, titleImage.size))
         self.controller = controller
         NEW_BUTTON_ID = wx.NewId()
-        self.newButton = wx.Button(self, NEW_BUTTON_ID, "New Tray",style=wx.NO_BORDER)
+        self.newButton = wx.Button(self, NEW_BUTTON_ID, "New Tray")
         self.Bind(wx.EVT_BUTTON, self.OnNew, self.newButton)
         OPEN_BUTTON_ID = wx.NewId()
-        self.openButton = wx.Button(self, OPEN_BUTTON_ID, "Open existing Tray",style=wx.NO_BORDER)
+        self.openButton = wx.Button(self, OPEN_BUTTON_ID, "Open Tray")
         self.Bind(wx.EVT_BUTTON, self.OnOpen, self. openButton)
         self.SetSize((400,300))
         self.__do_layout()
