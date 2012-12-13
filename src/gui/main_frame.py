@@ -334,7 +334,7 @@ class MainFrame(wx.Frame):
                         report = Report(self.data,parts, self.xtal_panel.tray, path, self.controller.userData.GetTempDir())
                         gen = report.compile()
                 else:
-                    report = Report(self.data,parts, self.xtal_panel.tray, path. self.controller.userData.GetTempDir())
+                    report = Report(self.data,parts, self.xtal_panel.tray, path, self.controller.userData.GetTempDir())
                     gen = report.compile()
             dlg.Destroy()
             if gen[0]:

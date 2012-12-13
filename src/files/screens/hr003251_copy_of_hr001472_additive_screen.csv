@@ -1,0 +1,100 @@
+#Additive Screen Formulation,,,,,
+#Hampton Research - Copyright 2012,,,,,
+>SolutionNr,Position,[Additive],{Additive},Additive
+#,#,,units,,
+1,1,0.1,M,Barium chloride dihydrate,Multivalent
+2,2,0.1,M,Cadmium chloride hydrate,Multivalent
+3,3,0.1,M,Calcium chloride dihydrate,Multivalent
+4,4,0.1,M,Cobalt(II) chloride hexahydrate,Multivalent
+5,5,0.1,M,Copper(II) chloride dihydrate,Multivalent
+6,6,0.1,M,Magnesium chloride hexahydrate,Multivalent
+7,7,0.1,M,Manganese(II) chloride tetrahydrate ,Multivalent
+8,8,0.1,M,Strontium chloride hexahydrate,Multivalent
+9,9,0.1,M,Yttrium(III) chloride hexahydrate,Multivalent
+10,10,0.1,M,Zinc chloride,Multivalent
+11,11,0.1,M,Iron(III) chloride hexahydrate,Multivalent
+12,12,0.1,M,Nickel(II) chloride hexahydrate,Multivalent
+13,13,0.1,M,Chromium(III) chloride hexahydrate,Multivalent
+14,14,0.1,M,Praseodymium(III) acetate hydrate,Multivalent
+15,15,1.0,M,Ammonium sulfate,Salt
+16,16,1.0,M,Potassium chloride,Salt
+17,17,1.0,M,Lithium chloride,Salt
+18,18,2.0,M,Sodium chloride,Salt
+19,19,0.5,M,Sodium fluoride,Salt
+20,20,1.0,M,Sodium iodide,Salt
+21,21,2.0,M,Sodium thiocyanate,Salt
+22,22,1.0,M,Potassium sodium tartrate tetrahydrate,Salt
+23,23,1.0,M,Sodium citrate tribasic dihydrate,Salt
+24,24,1.0,M,Cesium chloride,Salt
+25,25,1.0,M,Sodium malonate pH 7.0,Salt
+26,26,0.1,M,L-Proline,Amino Acid
+27,27,0.1,M,Phenol,Dissociating Agent
+28,28,30,% v/v,Dimethyl sulfoxide,Dissociating Agent
+29,29,0.1,M,Sodium bromide,Dissociating Agent
+30,30,30,% w/v,6-Aminohexanoic acid,Linker
+31,31,30,% w/v,"1,5-Diaminopentane dihydrochloride",Linker
+32,32,30,% w/v,"1,6-Diaminohexane",Linker
+33,33,30,% w/v,"1,8-Diaminooctane",Linker
+34,34,1.0,M,Glycine,Linker
+35,35,0.3,M,Glycyl-glycyl-glycine,Linker
+36,36,0.1,M,Taurine,Linker
+37,37,0.1,M,Betaine hydrochloride,Linker
+38,38,0.1,M,Spermidine,Polyamine
+39,39,0.1,M,Spermine tetrahydrochloride,Polyamine
+40,40,0.1,M,Hexammine cobalt(III) chloride,Polyamine
+41,41,0.1,M,Sarcosine,Polyamine
+42,42,0.1,M,Trimethylamine hydrochloride,Chaotrope
+43,43,1.0,M,Guanidine hydrochloride,Chaotrope
+44,44,0.1,M,Urea,Chaotrope
+45,45,0.1,M,Beta-Nicotinamide adenine dinucleotide hydrate,Co-factor
+46,46,0.1,M,Adenosine-5'-triphosphate disodium salt hydrate,Co-factor
+47,47,0.1,M,TCEP hydrochloride,Reducing Agent
+48,48,0.01,M,"GSH (L-Glutathione reduced), GSSG (L-Glutathione oxidized)",Reducing Agent
+49,49,0.1,M,Ethylenediaminetetraacetic acid disodium salt dihydrate,Chelating Agent
+50,50,5,% w/v,Polyvinylpyrrolidone K15,Polymer
+51,51,30,% w/v,Dextran sulfate sodium salt,Polymer
+52,52,40,% v/v,Pentaerythritol ethoxylate (3/4 EO/OH),Polymer
+53,53,10,% w/v,"Polyethylene glycol 3,350",Polymer
+54,54,30,% w/v,D-(+)-Glucose monohydrate,Carbohydrate
+55,55,30,% w/v,Sucrose,Carbohydrate
+56,56,30,% w/v,Xylitol,Carbohydrate
+57,57,30,% w/v,D-Sorbitol,Carbohydrate
+58,58,12,% w/v,myo-Inositol,Carbohydrate
+59,59,30,% w/v,D-(+)-Trehalose dihydrate,Carbohydrate
+60,60,30,% w/v,D-(+)-Galactose,Carbohydrate
+61,61,30,% v/v,Ethylene glycol,Polyol
+62,62,30,% v/v,Glycerol,Polyol
+63,63,3.0,M,NDSB-195,Non-detergent
+64,64,2.0,M,NDSB-201,Non-detergent
+65,65,2.0,M,NDSB-211,Non-detergent
+66,66,2.0,M,NDSB-221,Non-detergent
+67,67,1.0,M,NDSB-256,Non-detergent
+68,68,0.15,mM,CYMAL-7,Amphiphile
+69,69,20,% w/v,Benzamidine hydrochloride,Amphiphile
+70,70,5,% w/v,"n-Dodecyl-N,N-dimethylamine-N-oxide",Detergent
+71,71,5,% w/v,n-Octyl-_-D-glucoside,Detergent
+72,72,5,% w/v,n-Dodecyl-_-D-maltoside,Detergent
+73,73,30,% w/v,Trimethylamine N-oxide dihydrate,Osmolyte
+74,74,30,% w/v,"1,6-Hexanediol","Organic, Non-volatile"
+75,75,30,% v/v,"(+/-)-2-Methyl-2,4-pentanediol","Organic, Non-volatile"
+76,76,50,% v/v,Polyethylene glycol 400,"Organic, Non-volatile"
+77,77,50,% v/v,Jeffamine M-600 pH 7.0,"Organic, Non-volatile"
+78,78,40,% v/v,"2,5-Hexanediol","Organic, Non-volatile"
+79,79,40,% v/v,"(+/-)-1,3-Butanediol","Organic, Non-volatile"
+80,80,40,% v/v,Polypropylene glycol P 400,"Organic, Non-volatile"
+81,81,30,% v/v,"1,4-Dioxane","Organic, Volatile"
+82,82,30,% v/v,Ethanol,"Organic, Volatile"
+83,83,30,% v/v,2-Propanol,"Organic, Volatile"
+84,84,30,% v/v,Methanol,"Organic, Volatile"
+85,85,10,% v/v,"1,2-Butanediol","Organic, Volatile"
+86,86,40,% v/v,tert-Butanol,"Organic, Volatile"
+87,87,40,% v/v,"1,3-Propanediol","Organic, Volatile"
+88,88,40,% v/v,Acetonitrile,"Organic, Volatile"
+89,89,40,% v/v,Formamide,"Organic, Volatile"
+90,90,40,% v/v,1-Propanol,"Organic, Volatile"
+91,91,5,% v/v,Ethyl acetate,"Organic, Volatile"
+92,92,40,% v/v,Acetone,"Organic, Volatile"
+93,93,0.25,% v/v,Dichloromethane,"Organic, Volatile"
+94,94,7,% v/v,1-Butanol,"Organic, Volatile"
+95,95,40,% v/v,"2,2,2-Trifluoroethanol","Organic, Volatile"
+96,96,40,% v/v,"1,1,1,3,3,3-Hexafluoro-2-propanol","Organic, Volatile"

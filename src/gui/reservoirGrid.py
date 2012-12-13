@@ -574,7 +574,7 @@ class ReagentCellChoiceEditor(gridlib.PyGridCellEditor):
         self._tc.SetFocus()
         
 
-    def EndEdit(self, row, col, grid):
+    def EndEdit(self, row, col, grid, dummy):
         """
         Complete the editing of the current cell. Returns True if the value
         has changed.  If necessary, the control may be destroyed.
