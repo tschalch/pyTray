@@ -1,0 +1,55 @@
+#Crystal Screen Formulation,,,,,,,,,,,,,,
+#Hampton Research - Copyright 2006,,,,,,,,,,,,,,
+
+>SolutionNr,Position,[Salt 1],{Salt 1},Salt 1,[Buffer],{Buffer},Buffer,pH,[Precipitant 1],{Precipitant 1},Precipitant 1,[Precipitant 2],{Precipitant 2},Precipitant 2
+#,,,units,,,units,,,,units,,,units,
+1,1,0.02,M,Calcium chloride dihydrate,0.1,M,Sodium acetate trihydrate,4.6,30,%v/v,"(+/-)-2-Methyl-2,4-pentanediol",,,
+2,2,,,,,,,,0.4,M,Potassium sodium tartrate tetrahydrate,,,
+3,3,,,,,,,,0.4,M,Ammonium phosphate monobasic,,,
+4,4,,,,0.1,M,Tris hydrochloride,8.5,2,M,Ammonium sulfate,,, 
+5,5,0.2,M,Sodium citrate tribasic dihydrate,0.1,M,HEPES sodium,7.5,30,%v/v,"(+/-)-2-Methyl-2,4-pentanediol",,,
+6,6,0.2,M,Magnesium chloride hexahydrate,0.1,M,Tris hydrochloride,8.5,30,%w/v,"Polyethylene glycol 4,000",,,
+7,7,,,,0.1,M,Sodium cacodylate trihydrate,6.5,1.4,M,Sodium acetate trihydrate,,,
+8,8,0.2,M,Sodium citrate tribasic dihydrate,0.1,M,Sodium cacodylate trihydrate,6.5,30,%v/v,2-Propanol,,,
+9,9,0.2,M,Ammonium acetate,0.1,M,Sodium citrate tribasic dihydrate,5.6,30,%w/v,"Polyethylene glycol 4,000",,,
+10,10,0.2,M,Ammonium acetate,0.1,M,Sodium acetate trihydrate,4.6,30,%w/v,"Polyethylene glycol 4,000",,,
+11,11,,,,0.1,M,Sodium citrate tribasic dihydrate,5.6,1,M,Ammonium phosphate monobasic,,,
+12,12,0.2,M,Magnesium chloride hexahydrate,0.1,M,HEPES sodium,7.5,30,%v/v,2-Propanol
+13,13,0.2,M,Sodium citrate tribasic dihydrate,0.1,M,Tris hydrochloride,8.5,30,%v/v,Polyethylene glycol 400
+14,14,0.2,M,Calcium chloride dihydrate,0.1,M,HEPES sodium,7.5,28,%v/v,Polyethylene glycol 400
+15,15,0.2,M,Ammonium sulfate,0.1,M,Sodium cacodylate trihydrate,6.5,30,%w/v,"Polyethylene glycol 8,000"
+16,16,,,,0.1,M,HEPES sodium,7.5,1.5,M,Lithium sulfate monohydrate
+17,17,0.2,M,Lithium sulfate monohydrate,0.1,M,Tris hydrochloride,8.5,30,%w/v,"Polyethylene glycol 4,000"
+18,18,0.2,M,Magnesium acetate tetrahydrate,0.1,M,Sodium cacodylate trihydrate,6.5,20,%w/v,"Polyethylene glycol 8,000"
+19,19,0.2,M,Ammonium acetate,0.1,M,Tris hydrochloride,8.5,30,%v/v,2-Propanol
+20,20,0.2,M,Ammonium sulfate,0.1,M,Sodium acetate trihydrate,4.6,25,%w/v,"Polyethylene glycol 4,000"
+21,21,0.2,M,Magnesium acetate tetrahydrate,0.1,M,Sodium cacodylate trihydrate,6.5,30,%v/v,"(+/-)-2-Methyl-2,4-pentanediol"
+22,22,0.2,M,Sodium acetate trihydrate,0.1,M,Tris hydrochloride,8.5,30,%w/v,"Polyethylene glycol 4,000"
+23,23,0.2,M,Magnesium chloride hexahydrate,0.1,M,HEPES sodium,7.5,30,%v/v,Polyethylene glycol 400
+24,24,0.2,M,Calcium chloride dihydrate,0.1,M,Sodium acetate trihydrate,4.6,20,%v/v,2-Propanol
+25,25,,,,0.1,M,Imidazole,6.5,1,M,Sodium acetate trihydrate
+26,26,0.2,M,Ammonium acetate,0.1,M,Sodium citrate tribasic dihydrate,5.6,30,%v/v,"(+/-)-2-Methyl-2,4-pentanediol"
+27,27,0.2,M,Sodium citrate tribasic dihydrate,0.1,M,HEPES sodium,7.5,20,%v/v,2-Propanol
+28,28,0.2,M,Sodium acetate trihydrate,0.1,M,Sodium cacodylate trihydrate,6.5,30,%w/v,"Polyethylene glycol 8,000",,,
+29,29,,,,0.1,M,HEPES sodium,7.5,0.8,M,Potassium sodium tartrate tetrahydrate,,,
+30,30,0.2,M,Ammonium sulfate,,,,,30,%w/v,"Polyethylene glycol 8,000",,,
+31,31,0.2,M,Ammonium sulfate,,,,,30,%w/v,"Polyethylene glycol 4,000",,,
+32,32,,,,,,,,2,M,Ammonium sulfate,,,
+33,33,,,,,,,,4,M,Sodium formate,,,
+34,34,,,,0.1,M,Sodium acetate trihydrate,4.6,2,M,Sodium formate,,,
+35,35,,,,0.1,M,HEPES sodium,7.5,0.8,M,Sodium phosphate monobasic monohydrate,0.8,M,Potassium phosphate monobasic
+36,36,,,,0.1,M,Tris hydrochloride,8.5,8,%w/v,"Polyethylene glycol 8,000",,,
+37,37,,,,0.1,M,Sodium acetate trihydrate,4.6,8,%w/v,"Polyethylene glycol 4,000",,,
+38,38,,,,0.1,M,HEPES sodium,7.5,1.4,M,Sodium citrate tribasic dihydrate,,,
+39,39,,,,0.1,M,HEPES sodium,7.5,2,%v/v,Polyethylene glycol 400,2,M,Ammonium sulfate
+40,40,,,,0.1,M,Sodium citrate tribasic dihydrate,5.6,20,%v/v,2-Propanol,20,%w/v,"Polyethylene glycol 4,000"
+41,41,,,,0.1,M,HEPES sodium,7.5,10,%v/v,2-Propanol,20,%w/v,"Polyethylene glycol 4,000"
+42,42,0.05,M,Potassium phosphate monobasic,,,,,20,%w/v,"Polyethylene glycol 8,000",,,
+43,43,,,,,,,,30,%w/v,polyethylene glycol 1500,,,
+44,44,,,,,,,,0.2,M,magnesium formate dihydrate
+45,45,0.2,M,Zinc acetate dihydrate,0.1,M,Sodium cacodylate trihydrate,6.5,18,%w/v,"Polyethylene glycol 8,000"
+46,46,0.2,M,Calcium acetate hydrate,0.1,M,Sodium cacodylate trihydrate,6.5,18,%w/v,"Polyethylene glycol 8,000"
+47,47,,,,0.1,M,Sodium acetate trihydrate,4.6,2,M,Ammonium sulfate
+48,48,,,,0.1,M,Tris hydrochloride,8.5,2,M,Ammonium phosphate monobasic
+49,49,1,M,Lithium sulfate monohydrate,,,,,2,%w/v,"Polyethylene glycol 8,000"
+50,50,0.5,M,Lithium sulfate monohydrate,,,,,15,%w/v,"Polyethylene glycol 8,000"
