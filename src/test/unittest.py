@@ -298,7 +298,8 @@ class TestConverter(Test):
         contlr = controller.Controller(None)
         data = contlr.NewTray(None,(None,newScreen))
         from util.converter import Converter
-        converter = Converter(files + "/hampton_crystal_screen2_25-48.csv", data)
+	testfile = "/wizard3+4.csv"
+        converter = Converter(files + testfile, data)
         results.write("New screen before import:\n")
         results.write(data.GetSummary())
         converter.convert()

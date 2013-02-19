@@ -1,0 +1,36 @@
+*************
+Testing Converter ... 
+New Screen from scratch ... New screen before import:
+Summary of pyTray file Untitled:
+*****************************************************************************
+Hampton Crystal Screen - Test Conversion
+Rows:		   4	Columns:		   6	Wells:	  24
+Reagents:	   0	Screen Solutions:	  24	Drops:	  24
+Observations:	   0	Scores:	  10	Reservoirs:	  24	Images:	   0
+*****************************************************************************
+Screen after import:
+Summary of pyTray file Untitled:
+*****************************************************************************
+Hampton Crystal Screen - Test Conversion
+Rows:		   4	Columns:		   6	Wells:	  24
+Reagents:	  36	Screen Solutions:	  24	Drops:	  24
+Observations:	   0	Scores:	  10	Reservoirs:	  24	Images:	   0
+*****************************************************************************
+Importing stock solutions only...
+Screen after import:
+Summary of pyTray file CrystalScreenConverted.exp:
+*****************************************************************************
+Hampton Crystal Screen - Test Conversion
+Rows:		   4	Columns:		   6	Wells:	  24
+Reagents:	 147	Screen Solutions:	  24	Drops:	  24
+Observations:	   0	Scores:	  10	Reservoirs:	  24	Images:	   0
+*****************************************************************************
+Importing simplex screen solutions only...
+Traceback (most recent call last):
+  File "/Users/schalch/_Programming/pyTray/src/test/unittest.py", line 358, in __init__
+    testmodules[testmodule].Run()
+  File "/Users/schalch/_Programming/pyTray/src/test/unittest.py", line 321, in Run
+    converter.convertSimplexScreen()
+  File "/Users/schalch/_Programming/pyTray/src/util/converter.py", line 53, in convertSimplexScreen
+    position = int(cvsScreenSol['tube#'].split(' ')[1]) - 1
+KeyError: 'tube#'

@@ -5,22 +5,8 @@
 import controller
 
 def splitLine (line):
-    t1 = line.split(',"')
-    t2 = []
-    for token in t1:
-        t = token.split('",')
-        t2.extend(t)
-    counter = 0
-    fields = []
-    for token in t2:
-        if counter%2 == 0:
-            t = token.split(',')
-            fields.extend(t)
-        else:
-            t = token
-            fields.append(t)
-        counter += 1
-    return fields
+    return line.strip().split(';')
+    
 
 class Converter:
 
@@ -48,7 +34,7 @@ class Converter:
                     for i in range(len(self.lables)):
                         #print lables[i],tokens[i]
                         try:
-                            record[self.lables[i].strip()] = tokens[i].strip()
+			    record[self.lables[i].strip(' "')] = tokens[i].strip(' "')
                         except IndexError:
                             print "label not found, entering empty string"
                             record[self.lables[i].strip()] = ""
@@ -96,10 +82,11 @@ class Converter:
         stocks = self.getRecordsFromCVS()
         #print stocks
         for cvsStock in stocks:
-            #print cvsStock
+            print cvsStock
             reagent = self.data.AddNewReagent()
             try:
                 name = cvsStock['name']
+		reagent.SetProperty('name', name)
             except KeyError:
                 print "Column 'name' not found in cvs file"
             try:
@@ -108,8 +95,7 @@ class Converter:
                     reagent.SetProperty('ph', ph)
                     name += " at pH %2.1f" % (ph)
             except KeyError:
-                print "Column 'ph' not found in cvs file"
-            reagent.SetProperty('name', name)
+                print "Column 'pH' not found in cvs file"
             try:
                 reagent.SetProperty('concentration', cvsStock['concentration'])
             except KeyError:
@@ -142,27 +128,28 @@ class Converter:
             if line[0] == ">":
                 line = line.strip(">")
                 lables = splitLine(line)
+		print lables
                 for lable in lables:
-                    l = lable.strip("[{}] \n")
+                    l = lable.strip('[{}]" \n')
                     if not self.components.count(l) and (l!="Position" and l!="SolutionNr" and l!='pH') :
                         self.components.append(l)
-                #print self.components
+                print self.components
                 continue
             if lables:
                 tokens = splitLine(line)
                 record = {}
                 if tokens[0]:
                     for i in range(len(lables)):
-                        #print lables[i],tokens[i]
+                        print lables[i],tokens[i]
                         try:
-                            record[lables[i].strip()] = tokens[i]
+                            record[lables[i].strip(' "')] = tokens[i].strip(' "')
                         except IndexError:
-                            record[lables[i].strip()] = ""
+                            record[lables[i].strip(' "')] = ""
                 else:
                     continue
             else:
                 continue
-            #print record
+            print record
             # for every component extract name, concentration and units
             try:
                 wellNr = int(record['Position'])

@@ -712,6 +712,7 @@ class TrayData:
                 for j in range(self.noDrops):
                     obs = self.GetObservation(date,(i,j))
                     reservoir = self.GetReservoir(i)
+		    drop = self.GetDrop((i,j))
                     reagents = self.dbBackend.GetChildren(reservoir, "Component")
                     for component in reagents:
                         reagent = self.GetReagent(component.GetProperty("SolID"))
