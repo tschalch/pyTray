@@ -1,4 +1,4 @@
-import wx
+import wx, os
 import logging, pdb
 logging.basicConfig()
 log = logging.getLogger("observation_panel")
@@ -130,14 +130,14 @@ class ObservationPanel(wx.Panel):
         # process the data.
         if dlg.ShowModal() == wx.ID_OK:
             # This returns a Python list of files that were selected.
-            path = dlg.GetPaths()
-            file = dlg.GetFilename()
-            self.AddImage(file)
+            paths = dlg.GetPaths()
+	    for f in paths:
+		self.AddImage(f)
         dlg.Destroy()
 
-    def AddImage(self, file):
+    def AddImage(self, imgfile):
         try:
-            self.data.AddImage(file)
+            self.data.AddImage(os.path.abspath(imgfile))
             self.data.UpdateEventListeners(["front", "tray"],self)
         except NoZipFileError:
             d = wx.MessageBox("You need to save your file before you can add images.",\
@@ -317,19 +317,20 @@ class ObservationPanel(wx.Panel):
                 pass
 
         if len(self.images) == 0:
-            #if self.imagePanel.IsShown():
-                self.imagePanel.Disable()
-                panel = wx.Panel(self.imagePanel, -1, wx.DefaultPosition, self.data.IMAGE_SIZE)
-                self.imagePanel.DeleteAllPages()
-                self.imagePanel.AddPage(panel, "0")
+	    self.imagePanel.Disable()
+	    panel = wx.Panel(self.imagePanel, -1, wx.DefaultPosition, self.data.IMAGE_SIZE)
+	    self.imagePanel.DeleteAllPages()
+	    self.imagePanel.AddPage(panel, "0")
         else:
-            self.imagePanel.Show(0)
+            #self.imagePanel.Show(0)
             self.imagePanel.DeleteAllPages()
             for i,img in enumerate(self.images):
-                self.imagePanel.AddPage(ObsImagePanel(self.imagePanel,img, self.data,\
-                                                       self.data.IMAGE_SIZE),str(i))
-            self.imagePanel.Enable()
-            self.imagePanel.Show(1)
+		obs_panel = ObsImagePanel(self.imagePanel,img, self.data, self.data.IMAGE_SIZE)
+                self.imagePanel.AddPage(obs_panel,"image " + str(i+1))
+		obs_panel.Resize()
+            #self.imagePanel.Enable()
+	    #pdb.set_trace()
+            #self.imagePanel.Show(1)
         
 
 class ImagePanel(BufferedWindow):
@@ -376,6 +377,7 @@ class ObsImagePanel(ImagePanel):
         self.Init()
         ImagePanel.__init__(self, parent, self.image, imgSize)
         self.Bind(wx.EVT_RIGHT_UP, self.OnRightClick)
+	self.Layout()
 
     def Init(self):
         if self.img.GetText():

@@ -59,6 +59,7 @@ class TrayData:
 
 
     def AddImage(self, image):
+	assert os.path.isfile(image)
         drops = self.GetActiveDrops()
         if len(drops) == 1 and self.observationDate:
             position = drops[0]
