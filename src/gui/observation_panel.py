@@ -326,7 +326,7 @@ class ObservationPanel(wx.Panel):
             self.imagePanel.DeleteAllPages()
             for i,img in enumerate(self.images):
 		obs_panel = ObsImagePanel(self.imagePanel,img, self.data, self.data.IMAGE_SIZE)
-                self.imagePanel.AddPage(obs_panel,"image " + str(i+1))
+                self.imagePanel.AddPage(obs_panel, str(i+1))
 		obs_panel.Resize()
             #self.imagePanel.Enable()
 	    #pdb.set_trace()

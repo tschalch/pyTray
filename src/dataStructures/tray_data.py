@@ -715,10 +715,28 @@ class TrayData:
                     reservoir = self.GetReservoir(i)
 		    drop = self.GetDrop((i,j))
                     reagents = self.dbBackend.GetChildren(reservoir, "Component")
+		    pHs = []
+		    # Calculate pH of reservoir, only buffers should have pH, so
+		    # weighted average should be ok (very crude approximation, so best to use
+		    # only one component with a pH specified
+		    for component in reagents:
+                        reagent = self.GetReagent(component.GetProperty("SolID"))
+			reagent_ph = reagent.GetProperty("ph")
+                        reagent_conc = component.GetProperty("Concentration")
+			if reagent_ph:
+			    pHs.append((reagent_conc, reagent_ph))
+		    total_ph = 0
+		    total_conc = 0
+		    for ph in pHs:
+			total_ph += ph[0] * ph[1]
+			total_conc += ph[0]
+		    pH = "NA"
+		    if total_conc > 0:
+			pH = "%6.2f" % (total_ph / total_conc)
                     for component in reagents:
                         reagent = self.GetReagent(component.GetProperty("SolID"))
                         record = []
-                        record.extend([date, (i,j), reagent, component.GetProperty("Concentration"), obs.GetProperty("ScoreValue")])
+                        record.extend([date, (i,j), reagent, component.GetProperty("Concentration"), obs.GetProperty("ScoreValue"), pH])
                         exportData.append(record)
         # write to file
         try:
@@ -728,12 +746,13 @@ class TrayData:
             raise
         fout.write("# date; well; drop; reagent name; concentration; unit; type; pH; ionic strength; hydrophobicity; score\n")
         for record in exportData:
+	    print record
             reagent = record[2]
-            reagentString = '%s;%6.2f;%s;%s;%6.2f;%6.2f;%6.2f' % (reagent.GetProperty("name"),
+            reagentString = '%s;%6.2f;%s;%s;%s;%6.2f;%6.2f' % (reagent.GetProperty("name"),
                                           record[3],
                                           reagent.GetProperty("unit"),
                                           reagent.GetProperty("type"),
-                                          reagent.GetProperty("ph"),
+                                          record[5],
                                           reagent.GetProperty("ionicstrength"),
                                           reagent.GetProperty("hydrophobicity"))
             print record

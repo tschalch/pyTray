@@ -79,7 +79,25 @@ def GetExpandedIconImage():
     return wx.ImageFromStream(stream)
 
 #----------------------------------------------------------------------
-
+class TabPanel(wx.Panel):
+     """
+     This will be the first notebook tab
+     """
+     #----------------------------------------------------------------------
+     def __init__(self, parent):
+         """"""
+ 
+         wx.Panel.__init__(self, parent=parent, id=wx.ID_ANY)
+ 
+         sizer = wx.BoxSizer(wx.VERTICAL)
+         txtOne = wx.TextCtrl(self, wx.ID_ANY, "")
+         txtTwo = wx.TextCtrl(self, wx.ID_ANY, "")
+ 
+         sizer = wx.BoxSizer(wx.VERTICAL)
+         sizer.Add(txtOne, 0, wx.ALL, 5)
+         sizer.Add(txtTwo, 0, wx.ALL, 5)
+ 
+         self.SetSizer(sizer)
 
 class XtalPanel(wx.SplitterWindow):
     def __init__(self, parent, data):
@@ -87,13 +105,13 @@ class XtalPanel(wx.SplitterWindow):
 
         self.data = data
         self.parent = parent
-        #self.lower_panel = wx.Panel(self, -1,wx.DefaultPosition)
+        self.lower_panel = wx.Panel(self, -1,wx.DefaultPosition)
         #self.lower_panel = TestSashWindow (self)
-        self.sash1 = wx.SashLayoutWindow(self, -1,wx.DefaultPosition,
-                                  style=wx.NO_BORDER |wx.SW_3D)
-        self.sash1.SetOrientation(wx.LAYOUT_HORIZONTAL)
-        self.sash1.SetAlignment(wx.LAYOUT_TOP)
-        self.sash1.SetSashVisible(wx.SASH_BOTTOM, True)
+        #self.sash1 = wx.SashLayoutWindow(self, -1,wx.DefaultPosition,
+        #                          style=wx.NO_BORDER |wx.SW_3D)
+        #self.sash1.SetOrientation(wx.LAYOUT_HORIZONTAL)
+        #self.sash1.SetAlignment(wx.LAYOUT_TOP)
+        #self.sash1.SetSashVisible(wx.SASH_BOTTOM, True)
 ##        #self.lower_panel.SetExtraBorderSize(10)
 ##        self.sash2 = wx.SashLayoutWindow(self.lower_panel, -1,wx.DefaultPosition,
 ##                                  style=wx.NO_BORDER |wx.SW_3D)
@@ -103,8 +121,49 @@ class XtalPanel(wx.SplitterWindow):
         
         self.tray = Tray(self, self.data)
 
-        self.CreateFoldPanel(0)
-        self.SplitHorizontally(self.tray, self.sash1,320)
+        #self.CreateFoldPanel(0)
+        self.LayoutLowerPanel()
+        self.SplitHorizontally(self.tray, self.lower_panel,320)
+	sizer = wx.BoxSizer(wx.VERTICAL)
+	sizer.Add(self.nb, 1, wx.ALL|wx.EXPAND, 5)
+	self.lower_panel.SetSizer(sizer)
+
+    def LayoutLowerPanel(self):
+
+        self.nb = wx.Notebook(self.lower_panel)
+        
+        # observation panel
+	#self.obsPanel = TabPanel(self.nb)
+        obsPanel = ObservationPanel(self.nb, self.data)
+        self.tray.AddKeyListener(obsPanel)
+        self.nb.AddPage(obsPanel, "Observations") 
+	obsPanel.Update()
+
+        # reservoir grid panel
+        res_widths = [0.35, 0.18, 0.1, 0.3]
+        self.reservoir_grid = reservoirGrid.trayGrid(self.nb,\
+                                           self.data,\
+                                           reservoirGrid.ReservoirDataTable(self.data),\
+                                           res_widths,\
+                                           size = wx.Size(-1,90),\
+                                           style = wx.VSCROLL)
+        self.data.AddEventListener("front",self.reservoir_grid)
+        self.nb.AddPage(self.reservoir_grid, "Reservoir") 
+
+        # Drop grid panel
+        drop_widths = [0.25, 0.2, 0.1, 0.1, 0.3]
+        self.drop_grid = reservoirGrid.trayGrid(self.nb,\
+                                      self.data,\
+                                      reservoirGrid.DropDataTable(self.data),\
+                                      drop_widths,\
+                                      size = wx.Size(-1,90),\
+                                      style = wx.VSCROLL)
+        self.data.AddEventListener("front",self.drop_grid)
+        self.nb.AddPage(self.drop_grid, "Drops") 
+        # global parameters
+        self.panel_global = GlobalParameters(self.nb, self.data)
+        self.nb.AddPage(self.panel_global, "Notes") 
+
 
 
     def CreateFoldPanel(self, fpb_flags):
@@ -229,7 +288,7 @@ class GlobalParameters(wx.Panel):
                           wx.TE_MULTILINE|wx.TE_RICH,
                           size = (-1, 60))
         sizer_1 = wx.BoxSizer(wx.VERTICAL)
-        sizer_1.Add(self.remark_box, 0, wx.EXPAND, 0)
+        sizer_1.Add(self.remark_box, 1, wx.ALL|wx.EXPAND, 5)
         self.SetSizer(sizer_1)
         sizer_1.Fit(self)
         sizer_1.SetSizeHints(parent)

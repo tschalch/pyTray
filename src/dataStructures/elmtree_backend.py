@@ -17,7 +17,7 @@ import xml.etree.cElementTree as ET
 from PIL import Image
 #Image._initialized=2
 import cStringIO
-import os, os.path, subprocess, sys, random, shutil
+import os, os.path, random, shutil
 from util.trayErrors import NoZipFileError
 from elmtree_tray_item import TrayItem
 from elmtree_jtray import JTrayData
@@ -110,7 +110,7 @@ class XMLFileHandler:
             return
         elif zipfile.is_zipfile(filename) and UserData:
             # setup temp file
-            self.tempfile = "%s/%s%i.exp~" % (UserData.GetTempDir(),os.path.split(filename)[1]\
+            self.tempfile = "%s/%s%i.exp~" % (UserData.GetTempDir(), str(os.path.split(filename)[1])\
                             ,random.randint(0, 1000))
             self.StartTemp()
             self.ReadZip()
@@ -186,12 +186,7 @@ class XMLFileHandler:
             f = file(newFilename, 'wb')
             f.write(self.GetImage(imageName).getvalue())
             f.close()
-	    if sys.platform.startswith('darwin'):
-		subprocess.call(('open', f.name))
-	    elif os.name == 'nt':
-		os.startfile(f.name)
-	    elif os.name == 'posix':
-		subprocess.call(('xdg-open', f.name))
+            os.startfile(f.name)
         except IOError:
             print "Failed to open ",self.filename,"."
             raise
