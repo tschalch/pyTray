@@ -63,15 +63,15 @@ class Controller:
         dir = self.userData.GetValue("LastDir")
         dlg = wx.FileDialog(
             caller, message="Choose a file", defaultDir=dir, 
-            defaultFile="", wildcard=wildcard, style=wx.OPEN | wx.CHANGE_DIR | wx.MULTIPLE
+            defaultFile="", wildcard=wildcard, style=wx.OPEN | wx.MULTIPLE
             )
         # Show the dialog and retrieve the user response. If it is the OK response, 
         # process the data.
         if dlg.ShowModal() == wx.ID_OK:
-            self.userData.SetValue("LastDir", os.getcwd())
             # This returns a Python list of files that were selected.
             paths = dlg.GetPaths()
             for i in range(len(paths)):
+		self.userData.SetValue("LastDir", os.path.dirname(paths[i]))
                 file = paths[i]
                 data = OpenFile(file, self.defFile, False, self.userData)
                 frame = MainFrame(data, self , None, -1, "pyTray - " + file)
@@ -92,9 +92,9 @@ class Controller:
             # Show the dialog and retrieve the user response. If it is the OK response, 
             # process the data.
             if dlg.ShowModal() == wx.ID_OK:
-                self.userData.SetValue("LastDir", os.getcwd())
                 # This returns a Python list of files that were selected.
                 path = dlg.GetPath()
+                self.userData.SetValue("LastDir", os.path.dirname(path))
                 data = OpenFile(path, self.defFile, userData = self.userData, controller = self)
                 return data
             dlg.Destroy()
@@ -154,9 +154,9 @@ class Controller:
         # Show the dialog and retrieve the user response. If it is the OK response, 
         # process the data.
         if dlg.ShowModal() == wx.ID_OK:
-            self.userData.SetValue("LastDir", os.getcwd())
             # This returns a Python list of files that were selected.
             file = dlg.GetFilename()
+            self.userData.SetValue("LastDir", os.path.dirname(file))
             if os.access(file, os.F_OK):
                 d = wx.MessageBox("Overwrite existing file?", "Confirm", \
                                     wx.YES_NO|wx.ICON_EXCLAMATION, caller)

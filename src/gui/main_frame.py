@@ -5,7 +5,7 @@ logging.basicConfig()
 log = logging.getLogger("gui")
 
 import wx
-import os, sys, pdb
+import os, os.path, sys, pdb
 from util.trayErrors import NoUndoError
 from xtal_panel import XtalPanel
 from screen_panel import ScreenPanel
@@ -168,7 +168,6 @@ class MainFrame(wx.Frame):
             self.data.UpdateEventListeners(["frame"],self)
 
     def OnQuit(self,event):
-        self.controller.userData.SetValue("LastDir", os.getcwd())
         if self.data:
             if self.data.HasChanged():
                 answer = wx.MessageBox("There are unsaved changes. Are you sure you want to quit?", \
@@ -239,9 +238,9 @@ class MainFrame(wx.Frame):
             # Show the dialog and retrieve the user response. If it is the OK response, 
             # process the data.
             if dlg.ShowModal() == wx.ID_OK:
-                self.controller.userData.SetValue("LastDir", os.getcwd())
                 # This returns a Python list of files that were selected.
                 path = dlg.GetPath()
+                self.controller.userData.SetValue("LastDir", os.path.dirname(path))
                 if os.access(path, os.F_OK):
                             from util.converter import Converter
                             converter = Converter(path, self.data)
@@ -325,9 +324,9 @@ class MainFrame(wx.Frame):
             # Show the dialog and retrieve the user response. If it is the OK response, 
             # process the data.
             if dlg.ShowModal() == wx.ID_OK:
-                self.controller.userData.SetValue("LastDir", os.getcwd())
                 # This returns a Python list of files that were selected.
                 path = dlg.GetPath()
+                self.controller.userData.SetValue("LastDir", os.path.dirname(path))
                 if os.access(path, os.F_OK):
                     d = wx.MessageBox("Overwrite existing file?", "Confirm", wx.YES_NO, self)
                     if d == wx.YES:
@@ -363,9 +362,9 @@ class MainFrame(wx.Frame):
         # Show the dialog and retrieve the user response. If it is the OK response, 
         # process the data.
         if dlg.ShowModal() == wx.ID_OK:
-            self.controller.userData.SetValue("LastDir", os.getcwd())
             # This returns a Python list of files that were selected.
             path = dlg.GetPath()
+            self.controller.userData.SetValue("LastDir", os.path.dirname(path))
             if os.access(path, os.F_OK):
                 d = wx.MessageBox("Overwrite existing file?", "Confirm", wx.YES_NO, self)
                 if d == wx.YES:
