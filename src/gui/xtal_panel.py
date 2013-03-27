@@ -101,7 +101,7 @@ class TabPanel(wx.Panel):
 
 class XtalPanel(wx.SplitterWindow):
     def __init__(self, parent, data):
-        wx.SplitterWindow.__init__(self, parent, -1)
+        wx.SplitterWindow.__init__(self, parent, -1, style=wx.SP_LIVE_UPDATE)
 
         self.data = data
         self.parent = parent

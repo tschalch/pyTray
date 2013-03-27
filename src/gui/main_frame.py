@@ -115,12 +115,18 @@ class MainFrame(wx.Frame):
             self.notebook = wx.Notebook(self, -1, style=0)
             # panel holding crystallization experiment and observations
             self.xtal_panel = XtalPanel(self.notebook, self.data)
+	    self.xtal_panel.SetMinimumPaneSize(100)
+	    self.xtal_panel.SetSashPosition(330)
             # panel for screen information
             self.screen_panel = ScreenPanel(self.notebook, self.data)
+	    self.screen_panel.splitter.SetMinimumPaneSize(100)
+	    self.screen_panel.splitter.SetSashPosition(330)
             # panel for stock solutions
             self.stock_panel = StockPanel(self.notebook, self.data)
             # panel for scoring system
             self.score_panel = ScorePanel(self.notebook, self.data, self.controller)
+	    self.score_panel.splitter.SetMinimumPaneSize(100)
+	    self.score_panel.splitter.SetSashPosition(360)
             self.__do_layout()
             self.__set_properties()
         else:

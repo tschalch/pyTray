@@ -594,6 +594,8 @@ class ReagentCellChoiceEditor(gridlib.PyGridCellEditor):
                 grid.GetTable().AppendRows()
         except KeyError:
             log.debug("Caught exception: Key %s not found", pclDescr)
+        except ValueError:
+            log.debug("Caught exception: Key %s not found", pclDescr)
         if pcl != self.startValue :
             changed = True
             grid.GetTable().SetValue(row, col, pcl) # update the table

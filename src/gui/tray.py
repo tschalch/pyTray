@@ -237,7 +237,7 @@ class Tray(BufferedWindow):
             well.ClearDrops()
 
     def OnClick(self, event):
-        if not event.m_controlDown:
+        if not wx.GetMouseState().ControlDown():
             self.ClearWells()
 
         mp = event.GetPosition()
@@ -251,7 +251,7 @@ class Tray(BufferedWindow):
 
         if dx < 0 and  dy < 0:
             for well in self.wells.values():
-                if event.m_shiftDown or self.isScreen:
+                if wx.GetMouseState().ShiftDown() or self.isScreen:
                     well.Toggle()
                 else:
                     well.ToggleDrop(well.GetPosition())
@@ -261,7 +261,7 @@ class Tray(BufferedWindow):
         if dx < 0:
             for key,well in self.wells.items():
                 if int(key/self.noCols) == row:
-                    if event.m_shiftDown or self.isScreen:
+                    if wx.GetMouseState().ShiftDown() or self.isScreen:
                         well.Toggle()
                     else:
                         well.ToggleDrop(well.GetPosition())
@@ -269,7 +269,7 @@ class Tray(BufferedWindow):
             return
 
         if dy < 0:
-            if event.m_shiftDown or self.isScreen:
+            if wx.GetMouseState().ShiftDown() or self.isScreen:
                 for key,well in self.wells.items():
                     if key % self.noCols == col:
                         well.Toggle()
