@@ -292,29 +292,30 @@ class ObservationPanel(wx.Panel):
                     self.videoGrabButton.Disable()
 
             position = drops[0]
-            self.observation = self.data.GetObservation(self.observationDate,position)
-            try:
-                scoreValue = self.observation.GetProperty("ScoreValue")
-                score = str(scoreValue) + " " + \
-                        self.scores[self.observation.GetProperty("ScoreValue")]
-                self.score_combo.SetValue(score)
-            except ValueError:
-                self.score_combo.SetSelection(-1)
-            except KeyError:
-                log.debug("ScoreValue of %d not found in self.scores", scoreValue)
-                self.score_combo.SetSelection(-1)
-            except AttributeError:
-                log.debug("No Observation found")
-                return
-            remarks = self.observation.GetProperty("ObservationRemarks")
-            self.remark_box.SetValue(remarks)
-            self.images = self.data.GetImages(self.observationDate,position)
-            #self.__do_layout()
-        elif len(drops) == 0:
-            self.remark_box.Clear()
-            for control in self.detailControls:
-                control.Disable()
-                pass
+            if self.observationDate:
+                self.observation = self.data.GetObservation(self.observationDate,position)
+                try:
+                    scoreValue = self.observation.GetProperty("ScoreValue")
+                    score = str(scoreValue) + " " + \
+                            self.scores[self.observation.GetProperty("ScoreValue")]
+                    self.score_combo.SetValue(score)
+                except ValueError:
+                    self.score_combo.SetSelection(-1)
+                except KeyError:
+                    log.debug("ScoreValue of %d not found in self.scores", scoreValue)
+                    self.score_combo.SetSelection(-1)
+                except AttributeError:
+                    log.debug("No Observation found")
+                    return
+                remarks = self.observation.GetProperty("ObservationRemarks")
+                self.remark_box.SetValue(remarks)
+                self.images = self.data.GetImages(self.observationDate,position)
+                #self.__do_layout()
+            elif len(drops) == 0:
+                self.remark_box.Clear()
+                for control in self.detailControls:
+                    control.Disable()
+                    pass
 
         if len(self.images) == 0:
 	    self.imagePanel.Disable()

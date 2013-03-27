@@ -28,7 +28,7 @@ class ScorePanel(wx.Panel):
                                            comp_widths,\
                                            style = wx.VSCROLL)
         self.data.AddEventListener("score",self.score_grid)
-        self.splitter.SplitHorizontally(self.grid_panel, self.lowerPanel, 350)
+        self.splitter.SplitHorizontally(self.grid_panel, self.lowerPanel)
 
         self.__do_layout()
         

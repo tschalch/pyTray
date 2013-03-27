@@ -24,7 +24,7 @@ class ScreenPanel(wx.Panel):
                                            comp_widths,\
                                            style = wx.VSCROLL)
         self.data.AddEventListener("screen",self.composition_grid)
-        self.splitter.SplitHorizontally(self.tray, self.composition_panel,350)
+        self.splitter.SplitHorizontally(self.tray, self.composition_panel)
         self.__do_layout()
         
     def __do_layout(self):

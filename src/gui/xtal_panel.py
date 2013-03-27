@@ -120,10 +120,9 @@ class XtalPanel(wx.SplitterWindow):
 ##        self.sash2.SetSashVisible(wx.SASH_BOTTOM, True)
         
         self.tray = Tray(self, self.data)
-
         #self.CreateFoldPanel(0)
+        self.SplitHorizontally(self.tray, self.lower_panel)
         self.LayoutLowerPanel()
-        self.SplitHorizontally(self.tray, self.lower_panel,320)
 	sizer = wx.BoxSizer(wx.VERTICAL)
 	sizer.Add(self.nb, 1, wx.ALL|wx.EXPAND, 5)
 	self.lower_panel.SetSizer(sizer)

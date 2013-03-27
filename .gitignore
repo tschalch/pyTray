@@ -5,3 +5,4 @@ build
 tempfile.zip
 tmp*.jpg
 pyTray.exe.log
+*.swp

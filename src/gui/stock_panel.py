@@ -26,7 +26,7 @@ class StockPanel(wx.SplitterWindow):
         self.Layout()
 
     def __do_layout(self):
-        self.SplitHorizontally(self.upperPanel, self.lowerPanel,320)
+        self.SplitHorizontally(self.upperPanel, self.lowerPanel)
         
         sizer_table = wx.BoxSizer(wx.VERTICAL)
         sizer_table.Add(self.stock_grid, 1, wx.EXPAND, 0)
