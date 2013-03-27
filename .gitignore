@@ -1,0 +1,7 @@
+dist
+pyinstaller-1.3
+build
+*.pyc
+tempfile.zip
+tmp*.jpg
+pyTray.exe.log
