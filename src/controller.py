@@ -34,7 +34,7 @@ class Controller:
         # definition File
         self.defFile = os.path.abspath(self.path + "/files/Dtd/definition.xml")
         # User Preferences
-        self.userTemplateFile = os.path.abspath(self.path + "/files/user.pyTray")
+        self.userTemplateFile = os.path.abspath(self.path + "/files/user.pytray")
         self.userData = UserData(self)
         if file:
             try:
