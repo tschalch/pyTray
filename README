@@ -18,6 +18,10 @@
 
   For windows installation, copy the directory called "dist" into your location
   of choice. Use pyTray.exe to start the program.
+  
+  Some libraries may be missing on your system:
+  - Microsoft Visual C++ 2005 Resistributable Package provides 'MSVCR71.dll'
+  - Microsoft Visual C++ 2008 Redistributable Package provides 'MSVCP90.dll'
 
   Licensing
   ---------
