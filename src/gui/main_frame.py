@@ -11,6 +11,7 @@ from xtal_panel import XtalPanel
 from screen_panel import ScreenPanel
 from score_panel import ScorePanel
 from stock_panel import StockPanel
+from dataStructures.reporting import Report
 #from dataStructures.reporting import Report
 
 wildcard = "Experiment Files (*.exp)|*.exp|"     \
@@ -115,18 +116,18 @@ class MainFrame(wx.Frame):
             self.notebook = wx.Notebook(self, -1, style=0)
             # panel holding crystallization experiment and observations
             self.xtal_panel = XtalPanel(self.notebook, self.data)
-	    self.xtal_panel.SetMinimumPaneSize(100)
-	    self.xtal_panel.SetSashPosition(330)
+            self.xtal_panel.SetMinimumPaneSize(100)
+            self.xtal_panel.SetSashPosition(330)
             # panel for screen information
             self.screen_panel = ScreenPanel(self.notebook, self.data)
-	    self.screen_panel.splitter.SetMinimumPaneSize(100)
-	    self.screen_panel.splitter.SetSashPosition(330)
+            self.screen_panel.splitter.SetMinimumPaneSize(100)
+            self.screen_panel.splitter.SetSashPosition(330)
             # panel for stock solutions
             self.stock_panel = StockPanel(self.notebook, self.data)
             # panel for scoring system
             self.score_panel = ScorePanel(self.notebook, self.data, self.controller)
-	    self.score_panel.splitter.SetMinimumPaneSize(100)
-	    self.score_panel.splitter.SetSashPosition(360)
+            self.score_panel.splitter.SetMinimumPaneSize(100)
+            self.score_panel.splitter.SetSashPosition(360)
             self.__do_layout()
             self.__set_properties()
         else:
@@ -293,7 +294,6 @@ class MainFrame(wx.Frame):
         self.SaveAs(self.data.Save, wildcard)
 
     def OnReport(self,event):
-        from dataStructures.reporting import Report
         dir = self.controller.userData.GetValue("LastDir")
         choiceList = ["Result Sheet", "Scoring Sheet", "Scoring Graphics", "Screen Solutions", "Screen Pipetting Scheme", "Stock Solutions"]
         partList = ["scoreList", "emptyScoringSheet","scoreGraphics","screenSols", "screenVolumes","stockSols"]
@@ -345,7 +345,10 @@ class MainFrame(wx.Frame):
             if gen[0]:
                 #wx.MessageBox(gen[1], "Message", wx.OK)
                 #os.startfile(path)
-		os.system('open %s' % path)
+                if sys.platform[:3] == 'win':
+                    os.startfile(path)
+                if sys.platform[:3] == 'darwin':
+                    os.system('open %s' % path)
             else:
                 wx.MessageBox(gen[1], "Message", wx.OK)
 
