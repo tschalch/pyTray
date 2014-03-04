@@ -6,6 +6,7 @@ __doc__=''
 
 #REPORTLAB_TEST_SCRIPT
 import sys,os,copy
+import reportlab.lib
 from reportlab.lib import colors
 from reportlab.platypus import *
 import reportlab.platypus

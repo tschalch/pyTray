@@ -1,6 +1,5 @@
 # -*- mode: python -*-
 a = Analysis(['pytray.py'],
-             pathex=['C:\\Users\\thomas\\_Programming\\pyTray\\src'],
              hiddenimports=[],
              hookspath=None,
              runtime_hooks=None)
